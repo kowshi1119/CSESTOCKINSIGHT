@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CSE Stock Insight</string>
+    <string name="fundamental_analyzer">Fundamental Analyzer</string>
+    <string name="technical_forecast">Technical Forecast &amp; Charts</string>
+    <string name="search_companies">Search companies…</string>
+    <string name="show_charts">Show Charts</string>
+    <string name="save_to_watchlist">Save to Watchlist</string>
+    <string name="expected_price_range">Expected price range for next year:</string>
+    <string name="current_price">Current Price:</string>
+    <string name="moving_average">Moving Average:</string>
+    <string name="signal_bullish">Bullish</string>
+    <string name="signal_bearish">Bearish</string>
+    <string name="signal_neutral">Neutral</string>
+    <string name="price_history">Price History</string>
+
+    <!-- Authentication Module Strings -->
+    <!-- Auth Entry Screen -->
+    <string name="auth_app_tagline">Your Gateway to Stock Market Intelligence</string>
+    <string name="auth_login_button">Log In</string>
+    <string name="auth_create_account_button">Create Account</string>
+
+    <!-- Login Screen -->
+    <string name="login_title">Welcome back</string>
+    <string name="login_subtitle">Log in to continue</string>
+    <string name="login_email_hint">Email or Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_forgot_password">Forgot password?</string>
+    <string name="login_button">Log In</string>
+    <string name="login_or_continue_with">or continue with</string>
+    <string name="login_no_account">Don\'t have an account?</string>
+    <string name="login_sign_up">Sign up</string>
+    <string name="login_google_desc">Google Login</string>
+    <string name="login_facebook_desc">Facebook Login</string>
+    <string name="login_github_desc">GitHub Login</string>
+
+    <!-- Register Screen -->
+    <string name="register_title">Create your account</string>
+    <string name="register_full_name_hint">Full Name</string>
+    <string name="register_username_hint">Username</string>
+    <string name="register_email_hint">Email</string>
+    <string name="register_password_hint">Password</string>
+    <string name="register_confirm_password_hint">Confirm Password</string>
+    <string name="register_terms_conditions">I agree to the Terms &amp; Conditions</string>
+    <string name="register_button">Sign Up</string>
+    <string name="register_already_have_account">Already have an account?</string>
+    <string name="register_login">Log in</string>
+
+    <!-- Validation Messages -->
+    <string name="error_empty_email">Please enter your email or username</string>
+    <string name="error_empty_password">Please enter your password</string>
+    <string name="error_invalid_credentials">Incorrect username or password</string>
+    <string name="error_login_failed">Login failed. Please try again.</string>
+    <string name="success_login">Login successful 🎉</string>
+
+    <string name="error_empty_full_name">Please enter your full name</string>
+    <string name="error_empty_username">Please enter a username</string>
+    <string name="error_username_too_short">Username must be at least 4 characters</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="error_password_too_short">Password must be at least 8 characters</string>
+    <string name="error_password_weak">Password must contain at least one number</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+    <string name="error_terms_not_accepted">You must accept the Terms &amp; Conditions</string>
+    <string name="success_registration">Account created! You can now log in.</string>
+
+    <!-- Social Login Demo Messages -->
+    <string name="demo_google_login">Google login not implemented – demo only</string>
+    <string name="demo_facebook_login">Facebook login not implemented – demo only</string>
+    <string name="demo_github_login">GitHub login not implemented – demo only</string>
+    <string name="demo_forgot_password">Password recovery not implemented – demo only</string>
+</resources>

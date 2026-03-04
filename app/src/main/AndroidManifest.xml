@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Internet permission for API calls -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".CSEStockInsightApplication"
+        android:allowBackup="true"
+        android:label="CSE Stock Insight"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CSEStockInsight">
+        <activity
+            android:name=".newactivity"
+            android:exported="false" />
+        <!-- Authentication Entry - New launcher activity -->
+        <activity
+            android:name=".AuthEntryActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CSEStockInsight">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Login Activity -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CSEStockInsight" /> <!-- Register Activity -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CSEStockInsight" /> <!-- Main activity (accessed after login) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" /> <!-- Fundamental analysis screens -->
+        <activity
+            android:name=".FundamentalAnalyzerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CompanyDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FundamentalChartsActivity"
+            android:exported="false" /> <!-- Technical analysis screen -->
+        <activity
+            android:name=".TechnicalForecastActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

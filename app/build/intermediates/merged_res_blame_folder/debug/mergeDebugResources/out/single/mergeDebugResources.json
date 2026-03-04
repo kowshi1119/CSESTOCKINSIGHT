@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_activity_technical_forecast.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/activity_technical_forecast.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_activity_auth_entry.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/activity_auth_entry.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_activity_fundamental_charts.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/activity_fundamental_charts.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_activity_register.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_activity_main.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/xml_network_security_config.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/drawable_auth_button_primary.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/drawable/auth_button_primary.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_activity_login.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/anim_card_entrance.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/anim/card_entrance.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/drawable_social_button_google.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/drawable/social_button_google.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_activity_fundamental_analyzer.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/activity_fundamental_analyzer.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/drawable_social_button_github.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/drawable/social_button_github.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_row_company.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/row_company.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_activity_company_detail.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/activity_company_detail.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/drawable_social_button_facebook.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/drawable/social_button_facebook.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/drawable_auth_gradient_background.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/drawable/auth_gradient_background.xml"
+    },
+    {
+        "merged": "com.example.csestockinsight.app-debug-35:/layout_activity_newactivity.xml.flat",
+        "source": "com.example.csestockinsight.app-main-37:/layout/activity_newactivity.xml"
+    }
+]

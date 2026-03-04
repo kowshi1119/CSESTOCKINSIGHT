@@ -1,0 +1,26 @@
+Contributions
+
+1) J.JEYARAKAVAN SA24100138 - Technical analysis things
+   - Implemented technical analysis UI and screens
+   - Built `TechnicalForecastActivity` and chart visualizations
+   - Integrated MPAndroidChart for plotting technical indicators
+   - Developed algorithms for trend detection and basic forecasting
+   - Wrote unit tests and performance checks for core algorithms
+
+2) M.KOWSHIGAN SA24610554 - Fundamental analysis things
+   - Implemented fundamental analysis UI and data views
+   - Built `FundamentalAnalyzerActivity` and `FundamentalChartsActivity`
+   - Integrated data models and adapters for financial statements
+   - Implemented key ratios calculations and visual breakdowns
+   - Prepared dataset ingest helpers and parsing utilities
+
+3) Joint Work (both authors)
+   - Designed and implemented the Authentication module (AuthEntryActivity, LoginActivity, RegisterActivity)
+   - Shared responsibility for app navigation, theming, and resource structure
+   - Collaboratively wrote project documentation and READMEs
+   - Assisted each other in integrating Room database and basic data persistence
+
+Notes:
+- The two authors developed their specialized areas (technical vs fundamental) independently and collaborated on core app infrastructure and authentication.
+- For full attribution, match the above entries with code authorship in Git commits.
+

@@ -1,0 +1,123 @@
+[
+  {
+    "ticker": "JKH.N000",
+    "name": "John Keells Holdings",
+    "sector": "Conglomerate",
+    "income5Years": [120.5, 135.2, 148.7, 162.3, 175.8],
+    "debtEquity5Years": [0.75, 0.82, 0.95, 1.08, 1.15],
+    "dividend5Years": [5.0, 5.5, 6.0, 6.5, 7.2],
+    "eps5Years": [9.8, 11.2, 12.5, 13.8, 15.3],
+    "peRatio": 16.5,
+    "promoterHolding": 54.8,
+    "monthlyPrices": [98.5, 102.3, 105.7, 108.2, 112.5, 115.8, 118.3, 116.5, 120.2, 125.7, 128.9, 132.4]
+  },
+  {
+    "ticker": "DIAL.N000",
+    "name": "Dialog Axiata PLC",
+    "sector": "Telecommunications",
+    "income5Years": [85.3, 92.7, 98.5, 105.2, 112.8],
+    "debtEquity5Years": [1.45, 1.52, 1.38, 1.25, 1.18],
+    "dividend5Years": [2.5, 2.8, 3.0, 3.2, 3.5],
+    "eps5Years": [5.2, 6.1, 6.8, 7.5, 8.2],
+    "peRatio": 12.8,
+    "promoterHolding": 83.3,
+    "monthlyPrices": [65.2, 67.8, 69.5, 68.3, 70.2, 72.5, 75.8, 74.2, 76.9, 79.5, 81.2, 83.7]
+  },
+  {
+    "ticker": "RCL.N000",
+    "name": "Royal Ceramics Lanka PLC",
+    "sector": "Manufacturing",
+    "income5Years": [42.8, 45.3, 48.9, 52.7, 56.4],
+    "debtEquity5Years": [0.62, 0.58, 0.55, 0.52, 0.48],
+    "dividend5Years": [3.0, 3.2, 3.5, 3.8, 4.2],
+    "eps5Years": [8.5, 9.2, 9.8, 10.5, 11.3],
+    "peRatio": 18.2,
+    "promoterHolding": 68.7,
+    "monthlyPrices": [185.5, 192.3, 198.7, 195.2, 202.5, 208.9, 212.4, 215.8, 210.3, 218.7, 224.5, 228.9]
+  },
+  {
+    "ticker": "LFIN.N000",
+    "name": "LB Finance PLC",
+    "sector": "Finance & Leasing",
+    "income5Years": [28.5, 31.2, 34.8, 38.5, 42.7],
+    "debtEquity5Years": [2.15, 2.28, 2.42, 2.35, 2.18],
+    "dividend5Years": [1.5, 1.8, 2.0, 2.2, 2.5],
+    "eps5Years": [12.5, 14.2, 15.8, 17.5, 19.8],
+    "peRatio": 8.5,
+    "promoterHolding": 42.3,
+    "monthlyPrices": [142.5, 145.8, 148.2, 143.7, 147.9, 152.3, 155.8, 151.2, 158.9, 163.5, 167.2, 171.8]
+  },
+  {
+    "ticker": "COCR.N000",
+    "name": "Colombo Construction Ltd",
+    "sector": "Construction",
+    "income5Years": [18.2, 22.5, 28.7, 35.2, 42.8],
+    "debtEquity5Years": [1.85, 1.78, 1.65, 1.52, 1.38],
+    "dividend5Years": [0.0, 0.0, 1.0, 1.5, 2.0],
+    "eps5Years": [3.5, 4.8, 6.5, 8.5, 11.2],
+    "peRatio": 22.5,
+    "promoterHolding": 51.2,
+    "monthlyPrices": [210.5, 218.9, 225.7, 235.2, 242.8, 238.5, 245.9, 255.3, 262.7, 268.5, 275.2, 282.9]
+  },
+  {
+    "ticker": "LMF.N000",
+    "name": "Lanka Milk Foods PLC",
+    "sector": "Food & Beverage",
+    "income5Years": [65.8, 68.5, 71.2, 74.8, 78.5],
+    "debtEquity5Years": [0.45, 0.42, 0.38, 0.35, 0.32],
+    "dividend5Years": [4.5, 5.0, 5.5, 6.0, 6.5],
+    "eps5Years": [18.5, 19.8, 21.2, 22.5, 24.3],
+    "peRatio": 14.2,
+    "promoterHolding": 62.5,
+    "monthlyPrices": [325.5, 328.9, 332.5, 329.8, 335.2, 342.7, 348.5, 345.2, 352.8, 358.5, 362.9, 368.7]
+  },
+  {
+    "ticker": "ASHI.N000",
+    "name": "Asiri Hospital Holdings PLC",
+    "sector": "Healthcare",
+    "income5Years": [55.2, 58.7, 62.5, 68.2, 74.8],
+    "debtEquity5Years": [0.95, 1.05, 1.12, 1.08, 0.98],
+    "dividend5Years": [2.0, 2.2, 2.5, 2.8, 3.2],
+    "eps5Years": [6.8, 7.5, 8.2, 9.1, 10.5],
+    "peRatio": 19.8,
+    "promoterHolding": 48.9,
+    "monthlyPrices": [185.2, 188.7, 192.5, 189.3, 195.8, 201.2, 198.5, 203.7, 208.9, 212.5, 215.8, 219.3]
+  },
+  {
+    "ticker": "SAMP.N000",
+    "name": "Sampath Bank PLC",
+    "sector": "Banking",
+    "income5Years": [95.5, 102.3, 108.7, 115.2, 122.8],
+    "debtEquity5Years": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "dividend5Years": [3.5, 4.0, 4.5, 5.0, 5.5],
+    "eps5Years": [15.2, 16.8, 18.5, 20.2, 22.5],
+    "peRatio": 10.5,
+    "promoterHolding": 24.5,
+    "monthlyPrices": [215.5, 220.8, 225.3, 222.7, 228.5, 235.2, 240.8, 237.5, 245.2, 252.8, 258.5, 265.3]
+  },
+  {
+    "ticker": "CARG.N000",
+    "name": "Cargills Ceylon PLC",
+    "sector": "Retail",
+    "income5Years": [72.5, 78.9, 85.2, 92.7, 98.5],
+    "debtEquity5Years": [0.88, 0.92, 0.85, 0.78, 0.72],
+    "dividend5Years": [3.0, 3.5, 4.0, 4.5, 5.0],
+    "eps5Years": [12.8, 14.5, 16.2, 18.5, 20.8],
+    "peRatio": 15.8,
+    "promoterHolding": 58.7,
+    "monthlyPrices": [298.5, 305.2, 312.8, 308.5, 315.9, 322.5, 318.7, 325.8, 332.5, 338.9, 345.2, 352.8]
+  },
+  {
+    "ticker": "TKYO.N000",
+    "name": "Tokyo Cement Company PLC",
+    "sector": "Construction Materials",
+    "income5Years": [38.5, 42.8, 47.5, 52.3, 58.7],
+    "debtEquity5Years": [1.25, 1.38, 1.45, 1.52, 1.48],
+    "dividend5Years": [1.0, 1.2, 1.5, 1.8, 2.2],
+    "eps5Years": [4.8, 5.5, 6.5, 7.8, 9.2],
+    "peRatio": 11.8,
+    "promoterHolding": 71.3,
+    "monthlyPrices": [95.5, 98.2, 102.5, 99.8, 105.2, 108.7, 112.5, 109.8, 115.2, 119.8, 123.5, 128.2]
+  }
+]
+

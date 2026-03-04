@@ -1,0 +1,944 @@
+================================================================================
+                         CSE STOCK INSIGHT
+          A Colorful Android App for Stock Analysis & Forecasting
+================================================================================
+
+MODULE: Human Computer Interaction (HCI) - Assignment 02
+PROGRAM: Higher Diploma in IT - Year 2, Semester 1
+DATE: November 13, 2025
+
+================================================================================
+                              PROJECT OVERVIEW
+================================================================================
+
+CSE Stock Insight is a mobile Android application designed for fundamental and
+technical stock analysis focusing on Sri Lankan (CSE-style) companies. This is
+an academic project developed for learning purposes with dummy data and demo
+APIs - NOT for real trading.
+
+================================================================================
+                          TECHNOLOGIES & LANGUAGES
+================================================================================
+
+FRONT-END (Mobile Application)
+-------------------------------
+Language:           Java (100% - No Kotlin)
+IDE:                Android Studio Otter | 2025.2.1
+Build System:       Gradle 8.11.1
+UI Framework:       XML Layouts + Material Design Components 3
+Minimum SDK:        API 21 (Android 5.0 Lollipop)
+Target SDK:         API 34 (Android 14)
+
+UI Libraries:
+  - Material Components: 1.6.1 (Material Design 3 UI elements)
+  - ConstraintLayout: 2.1.4 (Flexible responsive layouts)
+  - RecyclerView: 1.2.1 (Efficient list displays)
+  - CardView: Built-in (Card-based design)
+
+Chart/Graph Library:
+  - MPAndroidChart: v3.1.0 (Bar charts, line charts, pie charts)
+
+BACK-END (Local - No Remote Server)
+------------------------------------
+Database:           Room (SQLite wrapper)
+Database Version:   Room 2.4.3
+ORM:                Room Persistence Library
+Database File:      company_database.db (local SQLite)
+
+Data Management:
+  - Room Runtime: 2.4.3
+  - Room Compiler: 2.4.3 (Annotation processor)
+  - SQLite: Built-in Android database
+
+DATABASE STRUCTURE
+------------------
+Tables:
+  1. users (Authentication data)
+  2. company_fundamentals (Stock data)
+
+Storage Type:       Local device storage (offline-first)
+Data Format:        Relational database (normalized tables)
+
+NETWORKING & APIs
+-----------------
+HTTP Client:        Retrofit 2.9.0
+JSON Parser:        Gson 2.9.0 (converter-gson)
+HTTP Engine:        OkHttp (bundled with Retrofit)
+
+API Usage:          2 demo APIs (placeholders)
+  - API 1: Stock price lookup
+  - API 2: Currency conversion / Financial news
+
+ADDITIONAL LIBRARIES
+--------------------
+Lifecycle:          androidx.lifecycle 2.4.1 (ViewModel, LiveData)
+Multidex:           androidx.multidex 2.0.1 (Method count support)
+AppCompat:          androidx.appcompat 1.4.2 (Backward compatibility)
+
+================================================================================
+                         COMPLETE PROJECT STRUCTURE
+================================================================================
+
+CSEStockInsight/
+│
+├── app/
+│   ├── build.gradle                    # App-level Gradle configuration
+│   ├── proguard-rules.pro              # ProGuard rules for release builds
+│   │
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── AndroidManifest.xml     # App manifest (permissions, activities)
+│   │   │   │
+│   │   │   ├── java/com/example/csestockinsight/
+│   │   │   │   │
+│   │   │   │   ├── ─── ACTIVITIES (10 Files) ───
+│   │   │   │   ├── MainActivity.java                    # Home screen
+│   │   │   │   ├── AuthEntryActivity.java               # Auth landing page
+│   │   │   │   ├── LoginActivity.java                   # User login
+│   │   │   │   ├── RegisterActivity.java                # User registration
+│   │   │   │   ├── FundamentalAnalyzerActivity.java     # Company list
+│   │   │   │   ├── CompanyDetailActivity.java           # Company details
+│   │   │   │   ├── FundamentalChartsActivity.java       # Fundamental charts
+│   │   │   │   ├── TechnicalForecastActivity.java       # Technical analysis
+│   │   │   │   ├── CSEStockInsightApplication.java      # Application class
+│   │   │   │   │
+│   │   │   │   ├── ─── DATA LAYER (11 Files) ───
+│   │   │   │   ├── data/
+│   │   │   │   │   ├── CompanyFundamentals.java         # Company entity
+│   │   │   │   │   ├── CompanyFundamentalsDao.java      # Company DAO
+│   │   │   │   │   ├── CompanyRepository.java           # Company repository
+│   │   │   │   │   ├── AppDatabase.java                 # Room database
+│   │   │   │   │   ├── CompanyDataSeeder.java           # JSON data seeder
+│   │   │   │   │
+│   │   │   │   ├── ─── AUTHENTICATION (4 Files) ───
+│   │   │   │   ├── User.java                            # User entity
+│   │   │   │   ├── UserDao.java                         # User DAO
+│   │   │   │   ├── UserDatabase.java                    # User database
+│   │   │   │   ├── AuthValidator.java                   # Validation utility
+│   │   │   │   │
+│   │   │   │   └── ─── ADAPTERS (2 Files) ───
+│   │   │   │       ├── CompanyAdapter.java              # RecyclerView adapter
+│   │   │   │       └── [Other adapters as needed]
+│   │   │   │
+│   │   │   ├── res/
+│   │   │   │   │
+│   │   │   │   ├── ─── LAYOUTS (8 XML Files) ───
+│   │   │   │   ├── layout/
+│   │   │   │   │   ├── activity_main.xml                # Home screen layout
+│   │   │   │   │   ├── activity_auth_entry.xml          # Auth landing layout
+│   │   │   │   │   ├── activity_login.xml               # Login layout
+│   │   │   │   │   ├── activity_register.xml            # Register layout
+│   │   │   │   │   ├── activity_fundamental_analyzer.xml
+│   │   │   │   │   ├── activity_company_detail.xml
+│   │   │   │   │   ├── activity_fundamental_charts.xml
+│   │   │   │   │   ├── activity_technical_forecast.xml
+│   │   │   │   │   └── item_company.xml                 # RecyclerView item
+│   │   │   │   │
+│   │   │   │   ├── ─── DRAWABLES (5 XML Files) ───
+│   │   │   │   ├── drawable/
+│   │   │   │   │   ├── auth_gradient_background.xml     # Purple-blue gradient
+│   │   │   │   │   ├── auth_button_primary.xml          # Button style
+│   │   │   │   │   ├── social_button_google.xml         # Google button
+│   │   │   │   │   ├── social_button_facebook.xml       # Facebook button
+│   │   │   │   │   └── social_button_github.xml         # GitHub button
+│   │   │   │   │
+│   │   │   │   ├── ─── ANIMATIONS (1 XML File) ───
+│   │   │   │   ├── anim/
+│   │   │   │   │   └── card_entrance.xml                # Card scale animation
+│   │   │   │   │
+│   │   │   │   ├── ─── VALUES (3 XML Files) ───
+│   │   │   │   ├── values/
+│   │   │   │   │   ├── colors.xml                       # Color palette
+│   │   │   │   │   ├── strings.xml                      # All text strings
+│   │   │   │   │   └── themes.xml                       # Material themes
+│   │   │   │   │
+│   │   │   │   └── xml/
+│   │   │   │       └── network_security_config.xml      # Network security
+│   │   │   │
+│   │   │   ├── ─── ASSETS (1 JSON File) ───
+│   │   │   └── assets/
+│   │   │       └── companies.json                       # 10 company dataset
+│   │   │
+│   │   └── test/                                        # Unit tests (optional)
+│   │
+│   └── build/                                           # Generated build files
+│
+├── gradle/
+│   └── wrapper/
+│       ├── gradle-wrapper.jar                           # Gradle wrapper
+│       └── gradle-wrapper.properties                    # Gradle version
+│
+├── ─── ROOT CONFIGURATION FILES ───
+├── build.gradle                                         # Project-level Gradle
+├── settings.gradle                                      # Project settings
+├── gradle.properties                                    # Gradle properties
+├── local.properties                                     # Local SDK path
+├── gradlew                                              # Gradle wrapper (Unix)
+├── gradlew.bat                                          # Gradle wrapper (Windows)
+│
+├── ─── DOCUMENTATION (7 MD Files) ───
+├── README.md                                            # Main project README
+├── AUTH_MODULE_README.md                                # Auth documentation
+├── AUTH_IMPLEMENTATION_SUMMARY.md                       # Auth summary
+├── QUICK_START_AUTH.md                                  # Auth quick start
+├── COMPANY_DATASET_README.md                            # Dataset docs
+├── DATASET_QUICK_REFERENCE.md                           # Dataset reference
+├── DATASET_IMPLEMENTATION_COMPLETE.md                   # Dataset summary
+│
+└── ─── BUILD & STATUS FILES ───
+    ├── BUILD_FIX_SUMMARY.md                             # Build fixes log
+    ├── BUILD_FIXES_APPLIED.md                           # Fixes applied
+    ├── PROJECT_STATUS.md                                # Project status
+    ├── TROUBLESHOOTING.md                               # Common issues
+    └── QUICK_START.md                                   # Quick start guide
+
+================================================================================
+                           ARCHITECTURE BREAKDOWN
+================================================================================
+
+PRESENTATION LAYER (Front-End)
+-------------------------------
+Technology:         XML Layouts + Java Activities
+Pattern:            MVC (Model-View-Controller)
+Navigation:         Intent-based Activity transitions
+
+Components:
+  - Activities:     10 Java classes for screens
+  - XML Layouts:    8+ layout files for UI
+  - Adapters:       RecyclerView adapters for lists
+  - Drawables:      Vector graphics and gradients
+  - Animations:     XML-based animations
+
+DATA LAYER (Back-End Logic)
+----------------------------
+Technology:         Room ORM + Repository Pattern
+Database:           SQLite (via Room)
+Threading:          ExecutorService for background operations
+
+Components:
+  - Entities:       @Entity annotated POJOs
+  - DAOs:           @Dao interfaces with SQL queries
+  - Database:       @Database singleton class
+  - Repositories:   Abstraction layer for data access
+  - Seeder:         JSON-based data population
+
+BUSINESS LOGIC LAYER
+--------------------
+Technology:         Java utility classes
+Processing:         In-memory calculations
+
+Components:
+  - Validators:     Input validation (email, password)
+  - Calculators:    Financial metrics (EPS growth, MA)
+  - Formatters:     Number and date formatting
+
+NETWORK LAYER (API Integration)
+--------------------------------
+Technology:         Retrofit 2 + Gson
+Protocol:           RESTful HTTP/HTTPS
+Format:             JSON
+
+Components:
+  - Service Interfaces: Retrofit API definitions
+  - Response Models:    JSON to POJO mapping
+  - Call Adapters:      Asynchronous callback handling
+
+================================================================================
+                              DATABASE SCHEMA
+================================================================================
+
+TABLE: users
+-------------
+Column Name         Type        Constraints         Description
+-----------         ----        -----------         -----------
+id                  INTEGER     PRIMARY KEY         Auto-increment ID
+full_name           TEXT        NOT NULL            User's full name
+username            TEXT        UNIQUE, NOT NULL    Unique username
+email               TEXT        UNIQUE, NOT NULL    Email address
+password            TEXT        NOT NULL            Password (plain - demo only)
+created_at          INTEGER     NOT NULL            Timestamp
+
+TABLE: company_fundamentals
+-----------------------------
+Column Name         Type        Constraints         Description
+-----------         ----        -----------         -----------
+id                  INTEGER     PRIMARY KEY         Auto-increment ID
+name                TEXT        NOT NULL            Company name
+ticker              TEXT        UNIQUE, NOT NULL    Stock ticker (e.g., JKH.N000)
+sector              TEXT        NOT NULL            Business sector
+
+-- Income (5 years)
+income_year1        REAL        NOT NULL            Income year 1 (millions LKR)
+income_year2        REAL        NOT NULL            Income year 2
+income_year3        REAL        NOT NULL            Income year 3
+income_year4        REAL        NOT NULL            Income year 4
+income_year5        REAL        NOT NULL            Income year 5
+
+-- Debt-to-Equity Ratio (5 years)
+de_ratio_year1      REAL        NOT NULL            D/E ratio year 1
+de_ratio_year2      REAL        NOT NULL            D/E ratio year 2
+de_ratio_year3      REAL        NOT NULL            D/E ratio year 3
+de_ratio_year4      REAL        NOT NULL            D/E ratio year 4
+de_ratio_year5      REAL        NOT NULL            D/E ratio year 5
+
+-- Dividends (5 years)
+dividend_year1      REAL        NOT NULL            Dividend/share year 1 (LKR)
+dividend_year2      REAL        NOT NULL            Dividend/share year 2
+dividend_year3      REAL        NOT NULL            Dividend/share year 3
+dividend_year4      REAL        NOT NULL            Dividend/share year 4
+dividend_year5      REAL        NOT NULL            Dividend/share year 5
+
+-- Earnings Per Share (5 years)
+eps_year1           REAL        NOT NULL            EPS year 1 (LKR)
+eps_year2           REAL        NOT NULL            EPS year 2
+eps_year3           REAL        NOT NULL            EPS year 3
+eps_year4           REAL        NOT NULL            EPS year 4
+eps_year5           REAL        NOT NULL            EPS year 5
+
+-- Current Metrics
+pe_ratio            REAL        NOT NULL            Price-to-Earnings ratio
+promoter_holding    REAL        NOT NULL            Promoter holding %
+
+-- Monthly Prices (12 months)
+price_month1        REAL        NOT NULL            Price month 1
+price_month2        REAL        NOT NULL            Price month 2
+price_month3        REAL        NOT NULL            Price month 3
+price_month4        REAL        NOT NULL            Price month 4
+price_month5        REAL        NOT NULL            Price month 5
+price_month6        REAL        NOT NULL            Price month 6
+price_month7        REAL        NOT NULL            Price month 7
+price_month8        REAL        NOT NULL            Price month 8
+price_month9        REAL        NOT NULL            Price month 9
+price_month10       REAL        NOT NULL            Price month 10
+price_month11       REAL        NOT NULL            Price month 11
+price_month12       REAL        NOT NULL            Price month 12
+
+-- UI State
+is_favourite        INTEGER     DEFAULT 0           Favorite flag (0 or 1)
+
+TOTAL COLUMNS: 50 fields per company
+TOTAL ROWS: 10 companies (dummy dataset)
+
+================================================================================
+                           DATASET INFORMATION
+================================================================================
+
+COMPANY DATA (10 Companies)
+----------------------------
+1. JKH.N000   - John Keells Holdings      (Conglomerate)
+2. DIAL.N000  - Dialog Axiata PLC         (Telecommunications)
+3. RCL.N000   - Royal Ceramics Lanka      (Manufacturing)
+4. LFIN.N000  - LB Finance PLC            (Finance & Leasing)
+5. COCR.N000  - Colombo Construction      (Construction)
+6. LMF.N000   - Lanka Milk Foods          (Food & Beverage)
+7. ASHI.N000  - Asiri Hospital Holdings   (Healthcare)
+8. SAMP.N000  - Sampath Bank PLC          (Banking)
+9. CARG.N000  - Cargills Ceylon PLC       (Retail)
+10. TKYO.N000 - Tokyo Cement Company      (Construction Materials)
+
+Data Source:        assets/companies.json (local JSON file)
+Total Metrics:      500+ individual data points
+Data Format:        JSON array with 10 company objects
+Seeding Method:     Automatic on first app install (CompanyDataSeeder.java)
+Update Frequency:   Static (no real-time updates - demo only)
+
+================================================================================
+                          UI/UX DESIGN SYSTEM
+================================================================================
+
+COLOR PALETTE
+-------------
+Primary:            #5E35B1 (Deep Purple)
+Primary Variant:    #311B92 (Darker Purple)
+Secondary:          #00897B (Teal)
+Accent Pink:        #E91E63 (Vibrant Pink)
+Accent Orange:      #FF6F00 (Bright Orange)
+
+Gradients:
+  Background:       Purple (#5E35B1) → Blue (#1E88E5) at 135° angle
+  Buttons:          Purple → Teal gradient
+
+Status Colors:
+  Success:          #388E3C (Green)
+  Error:            #D32F2F (Red)
+  Warning:          #FFA726 (Orange)
+  Neutral:          #757575 (Grey)
+
+TYPOGRAPHY
+----------
+Font Family:        Roboto (Android default)
+Headings:           24sp - 32sp, Bold
+Body Text:          16sp, Regular
+Labels:             14sp, Regular
+Captions:           12sp, Light
+
+DESIGN PATTERNS
+---------------
+Layout Pattern:     Card-based design with elevation
+Navigation:         Top app bars with back arrows
+Lists:              RecyclerView with CardView items
+Forms:              TextInputLayout with MaterialButton
+Charts:             MPAndroidChart with custom colors
+
+ANIMATIONS
+----------
+Screen Transitions: Fade + Scale (400ms duration)
+Card Entry:         Scale from 0.9 to 1.0 with fade
+Button Ripple:      Material default ripple effect
+Chart Entry:        Smooth value animations
+
+================================================================================
+                        API INTEGRATION DETAILS
+================================================================================
+
+API ARCHITECTURE
+----------------
+Framework:          Retrofit 2.9.0
+Converter:          Gson 2.9.0
+Base URL:           [Configurable in Constants.java]
+Timeout:            30 seconds (connect/read/write)
+
+API 1: Stock Price Lookup
+--------------------------
+Endpoint:           /api/stock/{ticker}
+Method:             GET
+Parameters:         ticker (path parameter)
+Response Format:    JSON
+Sample Response:
+{
+  "ticker": "JKH.N000",
+  "price": 132.40,
+  "change": +2.50,
+  "timestamp": "2025-11-13T10:30:00Z"
+}
+
+API 2: Currency Conversion
+---------------------------
+Endpoint:           /api/convert
+Method:             GET
+Parameters:         from, to, amount (query parameters)
+Response Format:    JSON
+Sample Response:
+{
+  "from": "LKR",
+  "to": "USD",
+  "amount": 132.40,
+  "converted": 0.44,
+  "rate": 300.0
+}
+
+Note: Both APIs currently use DEMO/HARDCODED responses for offline testing.
+      Replace with real endpoints and API keys for production use.
+
+================================================================================
+                         BUILD CONFIGURATION
+================================================================================
+
+GRADLE VERSION
+--------------
+Gradle:             8.11.1
+Android Gradle Plugin: 8.x.x
+Java Version:       17 (toolchain)
+
+BUILD TYPES
+-----------
+Debug:
+  - Minify Enabled:     false
+  - ProGuard:           disabled
+  - Debuggable:         true
+
+Release:
+  - Minify Enabled:     false (can be enabled)
+  - ProGuard:           optional
+  - Debuggable:         false
+
+PRODUCT FLAVORS
+---------------
+None (single flavor app)
+
+COMPILE OPTIONS
+---------------
+Source Compatibility: Java 17
+Target Compatibility: Java 17
+Encoding:             UTF-8
+
+PACKAGING OPTIONS
+-----------------
+Excludes:             /META-INF/{AL2.0,LGPL2.1}
+Multidex:             Enabled (for method count > 65K)
+
+DEPENDENCIES SUMMARY
+--------------------
+Total Dependencies:   15+
+AndroidX Libraries:   10+
+Third-Party Libraries: 5+
+
+================================================================================
+                         KEY FEATURES SUMMARY
+================================================================================
+
+AUTHENTICATION MODULE
+---------------------
+Technology:         Room (SQLite) + Java
+Features:
+  ✓ User registration with validation
+  ✓ User login with credential check
+  ✓ Email format validation
+  ✓ Password strength validation (8+ chars, uppercase, number)
+  ✓ Duplicate username/email detection
+  ✓ Social login UI (demo only)
+  ✓ Error feedback via TextInputLayout
+  ✓ Success feedback via Snackbar
+
+FUNDAMENTAL ANALYSIS
+--------------------
+Technology:         Room + MPAndroidChart
+Features:
+  ✓ Company search and filter
+  ✓ RecyclerView list of 10 companies
+  ✓ Detailed fundamental metrics display
+  ✓ 5-year income trend (bar chart)
+  ✓ 5-year D/E ratio (line chart)
+  ✓ 5-year dividend history
+  ✓ 5-year EPS with growth calculation
+  ✓ P/E ratio classification (10-20 check)
+  ✓ Promoter holding validation (50-60% check)
+  ✓ Shareholding pie chart (Promoter/Public/Institutional)
+
+TECHNICAL FORECAST
+------------------
+Technology:         MPAndroidChart + Retrofit
+Features:
+  ✓ 12-month price line chart
+  ✓ 50-day moving average calculation
+  ✓ Bullish/Bearish/Neutral signal
+  ✓ Next-year price forecast (historical growth)
+  ✓ Currency conversion (LKR → USD)
+  ✓ Current price display
+  ✓ API integration for live price (demo)
+
+UI/UX ENHANCEMENTS
+------------------
+  ✓ Material Design 3 components
+  ✓ Vibrant purple-blue gradient backgrounds
+  ✓ Card-based layouts with elevation
+  ✓ Smooth animations (fade, scale)
+  ✓ Loading indicators (ProgressBar)
+  ✓ Error/success feedback (Snackbar)
+  ✓ Input validation with real-time errors
+  ✓ Responsive layouts (ConstraintLayout)
+  ✓ Icon-based navigation
+
+================================================================================
+                      INSTALLATION INSTRUCTIONS
+================================================================================
+
+PREREQUISITES
+-------------
+✓ Android Studio Otter | 2025.2.1 or later
+✓ JDK 11 or higher
+✓ Android SDK (API 21+)
+✓ Gradle (managed by Android Studio)
+
+SETUP STEPS
+-----------
+1. Clone/Download the project:
+   git clone [REPO_URL]
+
+2. Open in Android Studio:
+   File → Open → Select project folder
+
+3. Sync Gradle:
+   Click "Sync Now" when prompted
+   Wait for dependencies to download
+
+4. Configure API Keys (optional):
+   Create local.properties:
+   API_KEY_1=your_stock_api_key
+   API_KEY_2=your_currency_api_key
+
+5. Run the app:
+   Click Run (▶) button
+   Select device/emulator
+   Wait for build and installation
+
+COMMAND LINE BUILD
+------------------
+Windows:
+  gradlew.bat clean assembleDebug
+  gradlew.bat installDebug
+
+Linux/Mac:
+  ./gradlew clean assembleDebug
+  ./gradlew installDebug
+
+================================================================================
+                           PROJECT STATISTICS
+================================================================================
+
+CODE METRICS
+------------
+Total Java Files:       25+
+Total XML Files:        20+
+Lines of Code (Java):   ~3,500+
+Lines of Code (XML):    ~2,000+
+Total Classes:          25+
+Total Activities:       10
+Total Database Tables:  2
+Total Companies:        10
+Total Data Points:      500+
+
+FILE SIZE
+---------
+APK Size (Debug):       ~8-10 MB
+Database Size:          ~500 KB
+Assets (JSON):          ~4 KB
+Total Project Size:     ~50-100 MB (with build files)
+
+SUPPORTED DEVICES
+-----------------
+Minimum Android:        5.0 (API 21)
+Target Android:         14.0 (API 34)
+Screen Sizes:           Phone, Tablet
+Orientations:           Portrait (primary)
+
+================================================================================
+                            MODULE BREAKDOWN
+================================================================================
+
+MODULE 1: AUTHENTICATION (Member Contribution)
+-----------------------------------------------
+Files:
+  - AuthEntryActivity.java
+  - LoginActivity.java
+  - RegisterActivity.java
+  - User.java
+  - UserDao.java
+  - UserDatabase.java
+  - AuthValidator.java
+  - activity_auth_entry.xml
+  - activity_login.xml
+  - activity_register.xml
+  - 5 drawable XML files (gradients, buttons)
+
+Technologies:
+  - Room (SQLite)
+  - Material TextInputLayout
+  - Material Button
+  - ExecutorService (threading)
+  - Handler (UI updates)
+
+Lines of Code: ~1,200 Java + ~500 XML
+
+MODULE 2: FUNDAMENTAL ANALYSIS (Member Contribution)
+-----------------------------------------------------
+Files:
+  - FundamentalAnalyzerActivity.java
+  - CompanyDetailActivity.java
+  - FundamentalChartsActivity.java
+  - CompanyFundamentals.java
+  - CompanyFundamentalsDao.java
+  - CompanyRepository.java
+  - CompanyAdapter.java
+  - activity_fundamental_analyzer.xml
+  - activity_company_detail.xml
+  - activity_fundamental_charts.xml
+  - item_company.xml
+
+Technologies:
+  - Room (SQLite)
+  - RecyclerView
+  - MPAndroidChart (bar, pie)
+  - CardView
+  - ConstraintLayout
+
+Lines of Code: ~1,500 Java + ~800 XML
+
+MODULE 3: TECHNICAL FORECAST (Member Contribution)
+---------------------------------------------------
+Files:
+  - TechnicalForecastActivity.java
+  - activity_technical_forecast.xml
+  - Retrofit service interfaces
+  - API response models
+
+Technologies:
+  - MPAndroidChart (line chart)
+  - Retrofit 2
+  - Gson
+  - Moving average calculation
+  - Forecast algorithms
+
+Lines of Code: ~800 Java + ~400 XML
+
+SHARED MODULE: DATA & INFRASTRUCTURE
+-------------------------------------
+Files:
+  - AppDatabase.java
+  - CompanyDataSeeder.java
+  - MainActivity.java
+  - CSEStockInsightApplication.java
+  - companies.json
+  - activity_main.xml
+  - colors.xml
+  - strings.xml
+  - themes.xml
+
+Technologies:
+  - Room database singleton
+  - JSON parsing (org.json)
+  - Application class
+  - Shared resources
+
+Lines of Code: ~500 Java + ~300 XML
+
+================================================================================
+                         ACADEMIC INFORMATION
+================================================================================
+
+COURSE DETAILS
+--------------
+Module:                 Human Computer Interaction (HCI)
+Assignment:             Assignment 02 - Mobile Application
+Program:                Higher Diploma in IT
+Year & Semester:        Year 2, Semester 1
+Institution:            [UNIVERSITY/INSTITUTION NAME]
+Instructor:             [INSTRUCTOR NAME]
+
+PROJECT TYPE
+------------
+Category:               Group Project
+Group Number:           [GROUP NUMBER]
+Submission Date:        [SUBMISSION DATE]
+Submission Format:      Source code + Documentation + APK
+
+ASSESSMENT CRITERIA
+-------------------
+✓ UI/UX Design                  (Material Design principles)
+✓ Functionality                 (All features working)
+✓ Code Quality                  (Clean, documented code)
+✓ Database Integration          (Room implementation)
+✓ API Integration               (Retrofit usage)
+✓ Charts/Visualizations         (MPAndroidChart)
+✓ HCI Principles                (Usability, feedback)
+✓ Documentation                 (README, comments)
+
+================================================================================
+                         DISCLAIMER & LICENSE
+================================================================================
+
+ACADEMIC USE NOTICE
+-------------------
+This project is developed solely for academic and educational purposes as part
+of the Human Computer Interaction (HCI) module coursework. It is NOT intended
+for commercial use or real financial trading.
+
+FINANCIAL DISCLAIMER
+--------------------
+⚠ WARNING: This app uses DUMMY DATA and DEMO APIs only.
+⚠ All stock prices, forecasts, and analysis are SIMULATED.
+⚠ DO NOT use this app for real trading or financial decisions.
+⚠ The developers are NOT responsible for any financial losses.
+⚠ This app does NOT provide financial advice.
+
+DATA DISCLAIMER
+---------------
+All company data is fictional or simulated for demonstration purposes.
+Any resemblance to actual CSE companies is coincidental.
+
+LICENSE
+-------
+All Rights Reserved - Academic Use Only
+
+This codebase is the intellectual property of the project contributors and is
+intended solely for academic evaluation. Redistribution, commercial use, or
+reproduction without written permission is prohibited.
+
+For educational or research purposes, contact the project team.
+
+================================================================================
+                         CONTACT INFORMATION
+================================================================================
+
+PROJECT TEAM
+------------
+Member 1:   [MEMBER NAME 1]
+            Student ID: [STUDENT ID 1]
+            Email: [EMAIL 1]
+            Role: Fundamental Analyzer, Dataset, Database
+
+Member 2:   [MEMBER NAME 2]
+            Student ID: [STUDENT ID 2]
+            Email: [EMAIL 2]
+            Role: Technical Forecast, APIs, UI Design
+
+Group:      [GROUP NUMBER]
+
+SUPPORT
+-------
+For questions or issues:
+  - Email: [GROUP_EMAIL]
+  - Repository: [GITHUB_URL]
+  - Documentation: See README.md and other .md files
+
+ACKNOWLEDGMENTS
+---------------
+- Android Developer Documentation
+- Material Design Guidelines (Google)
+- MPAndroidChart Library (PhilJay)
+- Stack Overflow Community
+- Course Instructor & Teaching Assistants
+
+================================================================================
+                         VERSION INFORMATION
+================================================================================
+
+App Version:        1.0.0
+Version Code:       1
+Build Date:         November 13, 2025
+Last Updated:       November 13, 2025
+
+Change Log:
+-----------
+v1.0.0 (2025-11-13)
+  ✓ Initial release
+  ✓ Authentication module complete
+  ✓ Fundamental analysis complete
+  ✓ Technical forecast complete
+  ✓ Dataset integration complete
+  ✓ Documentation complete
+
+Future Versions:
+----------------
+v1.1.0 (Planned)
+  - Real API integration
+  - More companies (50+)
+  - Advanced forecast models
+  - Dark mode support
+
+v2.0.0 (Planned)
+  - Cloud sync (Firebase)
+  - Portfolio tracking
+  - Push notifications
+  - Social features
+
+================================================================================
+                         BUILD STATUS & TESTING
+================================================================================
+
+LAST BUILD
+----------
+Status:             ✓ SUCCESS
+Build Time:         ~15 seconds
+Tasks Executed:     34 tasks
+APK Generated:      app-debug.apk (~8 MB)
+
+TESTING STATUS
+--------------
+Unit Tests:         Not implemented (future work)
+Integration Tests:  Not implemented (future work)
+UI Tests:           Manual testing only
+Device Testing:     ✓ Tested on emulator (API 34)
+
+KNOWN ISSUES
+------------
+None critical. See TROUBLESHOOTING.md for minor issues.
+
+SUPPORTED DEVICES (Tested)
+--------------------------
+✓ Pixel 6 Pro (Emulator, API 34)
+✓ Generic Phone (API 24+)
+✓ Tablet (10-inch, landscape support minimal)
+
+================================================================================
+                         QUICK REFERENCE COMMANDS
+================================================================================
+
+BUILD COMMANDS
+--------------
+Clean build:            gradlew.bat clean
+Build debug APK:        gradlew.bat assembleDebug
+Build release APK:      gradlew.bat assembleRelease
+Install on device:      gradlew.bat installDebug
+Run all checks:         gradlew.bat check
+
+DEVELOPMENT COMMANDS
+--------------------
+Sync Gradle:            File → Sync Project with Gradle Files
+Clean project:          Build → Clean Project
+Rebuild project:        Build → Rebuild Project
+Invalidate caches:      File → Invalidate Caches / Restart
+
+DATABASE COMMANDS (via ADB)
+---------------------------
+View database:          adb shell
+                        run-as com.example.csestockinsight
+                        cd databases
+                        sqlite3 company_database.db
+
+Clear app data:         adb shell pm clear com.example.csestockinsight
+
+LOGCAT COMMANDS
+---------------
+View all logs:          adb logcat
+Filter by tag:          adb logcat -s CompanyDataSeeder
+Clear logs:             adb logcat -c
+
+================================================================================
+                         TROUBLESHOOTING GUIDE
+================================================================================
+
+COMMON ISSUES & SOLUTIONS
+--------------------------
+
+Issue 1: Gradle Sync Failed
+Solution: Check internet connection, invalidate caches, re-sync
+
+Issue 2: App Crashes on Launch
+Solution: Uninstall app, clean build, reinstall
+
+Issue 3: Database Not Seeding
+Solution: Clear app data, reinstall to trigger onCreate callback
+
+Issue 4: Charts Not Displaying
+Solution: Check MPAndroidChart dependency, verify data not null
+
+Issue 5: API Calls Failing
+Solution: Check internet permission, verify endpoint URLs
+
+Issue 6: Authentication Not Working
+Solution: Clear database, re-register user, check DAO queries
+
+For more issues, see TROUBLESHOOTING.md file.
+
+================================================================================
+                         ADDITIONAL RESOURCES
+================================================================================
+
+DOCUMENTATION FILES
+-------------------
+1. README.md                              - Main project documentation
+2. AUTH_MODULE_README.md                  - Authentication guide
+3. COMPANY_DATASET_README.md              - Dataset documentation
+4. DATASET_QUICK_REFERENCE.md             - Quick reference
+5. TROUBLESHOOTING.md                     - Common issues
+6. PROJECT_STATUS.md                      - Current status
+7. QUICK_START.md                         - Quick start guide
+8. PROJECT_STRUCTURE.txt                  - This file
+
+EXTERNAL LINKS
+--------------
+- Android Developer Docs:    https://developer.android.com
+- Material Design:            https://material.io
+- Room Persistence:           https://developer.android.com/training/data-storage/room
+- Retrofit:                   https://square.github.io/retrofit/
+- MPAndroidChart:             https://github.com/PhilJay/MPAndroidChart
+
+================================================================================
+                              END OF FILE
+================================================================================
+
+Last Updated: November 13, 2025
+Generated By: CSE Stock Insight Development Team
+File Version: 1.0
+

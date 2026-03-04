@@ -1,0 +1,103 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.csestockinsight'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.example.csestockinsight"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        // Enable multidex to allow more methods when using many libraries
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // Debug-specific options can go here
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    // Explicitly configure Java toolchain to use Java 17
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['/META-INF/{AL2.0,LGPL2.1}']
+        }
+    }
+
+    // Define source sets for test classes
+    sourceSets {
+        test {
+            java {
+                srcDirs = ['src/test/java']
+            }
+            resources {
+                srcDirs = ['src/test/resources']
+            }
+        }
+        androidTest {
+            java {
+                srcDirs = ['src/androidTest/java']
+            }
+            resources {
+                srcDirs = ['src/androidTest/resources']
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    // Room persistence library for SQLite database access
+    implementation 'androidx.room:room-runtime:2.4.3'
+    implementation 'androidx.activity:activity:1.11.0'
+    annotationProcessor 'androidx.room:room-compiler:2.4.3'
+
+    // Retrofit for networking and API calls
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // MPAndroidChart library for graphs and charts
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // Lifecycle components for LiveData (optional but helpful)
+    implementation 'androidx.lifecycle:lifecycle-livedata-core:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.4.1'
+
+    // Support for multidex (since we're enabling it)
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // Testing dependencies
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
